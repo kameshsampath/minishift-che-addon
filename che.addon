@@ -1,0 +1,12 @@
+# Name: che
+# Description: Setup and Configure Che
+# Url: https://www.eclipse.org/che/docs/setup/openshift/index.html
+
+# oc login -u system:admin
+oc apply -f streams/che-server-streams.json -n openshift
+
+# Create the Che server Template 
+oc create -f templates/che-single-user.json -n openshift
+
+# TODO should I create the default server well 
+
