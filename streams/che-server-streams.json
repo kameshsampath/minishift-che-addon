@@ -4,7 +4,7 @@
     "metadata": {
         "name": "che-server-image-streams",
         "annotations": {
-            "description": "ImageStream definitions for Eclipse sChe Servers."
+            "description": "ImageStream definitions for Eclipse Che Servers."
         }
     },
     "items": [
@@ -12,18 +12,30 @@
             "kind": "ImageStream",
             "apiVersion": "v1",
             "metadata": {
-                "name": "che-server"
+                "name": "che-server",
+                "annotations": {
+                    "description": " Eclipse Che Servers 5.x"
+                }
             },
             "spec": {
-                "dockerImageRepository": "registry.devshift.net/che/che",
+                "dockerImageRepository": "docker.io/eclipse/che-server",
                 "tags": [
                     {
-                        "name": "2.0.35",
+                        "name": "5.18.0",
                         "annotations": {
                             "description": "Eclipse Che server images.",
                             "iconClass": "icon-che",
                             "tags": "java,ide,eclipse,che",
-                            "version": "ee46279-fabric8-fac865a"
+                            "version": "5.18.0"
+                        }
+                    },
+                    {
+                        "name": "nightly",
+                        "annotations": {
+                            "description": "Eclipse Che server images.",
+                            "iconClass": "icon-che",
+                            "tags": "java,ide,eclipse,che",
+                            "version": "nightly"
                         }
                     }
                 ]
