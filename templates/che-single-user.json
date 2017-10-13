@@ -3,11 +3,11 @@
     "apiVersion": "v1",
     "metadata": {
         "annotations": {
+            "openshift.io/display-name": "Eclipse Che Server 5.x",
             "description": "Application template to deploy Eclipse Che servers",
             "iconClass": "icon-che",
-            "tags": "java,ide,eclipse,che",
-            "version": "2.0.35",
-            "openshift.io/display-name": "Eclipse Che Server 5.x (Ephemeral)"
+            "tags": "IDE,eclipse,che",
+            "version": "1.0"
         },
         "name": "che-server-single-user"
     },
@@ -29,9 +29,9 @@
         },
         {
             "displayName": "Che Image Tag",
-            "description": "The docker image tag to be used for che, available are 5.18.0(stable), nightly",
+            "description": "The docker image tag to be used for che, available are latest (5.18.0-centos), nightly(5.19.0-SNAPSHOT)",
             "name": "IMAGE_TAG",
-            "value": "5.18.0",
+            "value": "latest",
             "required": false
         },
         {
@@ -61,18 +61,6 @@
             "name": "IMAGE_STREAM_NAMESPACE",
             "value": "openshift",
             "required": true
-        },
-        {
-            "displayName": "KeyCloak OSO Endpoint",
-            "name": "KEYCLOAK_OSO_ENDPOINT",
-            "value": "",
-            "required": false
-        },
-        {
-            "displayName": "KeyCloak GitHub Endpoint",
-            "name": "KEYCLOAK_GITHUB_ENDPOINT",
-            "value": "",
-            "required": false
         }
     ],
     "objects": [
@@ -168,8 +156,6 @@
                 "workspaces-memory-limit": "1300Mi",
                 "workspaces-memory-request": "1100Mi",
                 "enable-workspaces-autostart": "false",
-                "keycloak-oso-endpoint": "${KEYCLOAK_OSO_ENDPOINT}",
-                "keycloak-github-endpoint": "${KEYCLOAK_GITHUB_ENDPOINT}",
                 "keycloak-disabled": "true",
                 "che-server-java-opts": "-XX:+UseG1GC -XX:+UseStringDeduplication -XX:MinHeapFreeRatio=20 -XX:MaxHeapFreeRatio=40 -XX:MaxRAM=600m -Xms256m",
                 "che-workspaces-java-opts": "-XX:+UseG1GC -XX:+UseStringDeduplication -XX:MinHeapFreeRatio=20 -XX:MaxHeapFreeRatio=40 -XX:MaxRAM=1200m -Xms256m",
@@ -482,31 +468,8 @@
                                         }
                                     },
                                     {
-                                        "name": "CHE_KEYCLOAK_OSO_ENDPOINT",
-                                        "valueFrom": {
-                                            "configMapKeyRef": {
-                                                "key": "keycloak-oso-endpoint",
-                                                "name": "che"
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "name": "CHE_KEYCLOAK_GITHUB_ENDPOINT",
-                                        "valueFrom": {
-                                            "configMapKeyRef": {
-                                                "key": "keycloak-github-endpoint",
-                                                "name": "che"
-                                            }
-                                        }
-                                    },
-                                    {
                                         "name": "CHE_KEYCLOAK_DISABLED",
-                                        "valueFrom": {
-                                            "configMapKeyRef": {
-                                                "key": "keycloak-disabled",
-                                                "name": "che"
-                                            }
-                                        }
+                                        "value": "true"
                                     },
                                     {
                                         "name": "CHE_WORKSPACE_AUTO__SNAPSHOT",
