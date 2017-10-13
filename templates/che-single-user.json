@@ -14,13 +14,6 @@
     "labels": {},
     "parameters": [
         {
-            "displayName": "Project Name",
-            "description": "The project where Che will be deployed",
-            "name": "PROJECT_NAME",
-            "value": "myproject",
-            "required": true
-        },
-        {
             "displayName": "Domain Name",
             "description": "The domain name to use with the project, its usually combination of $(minishift ip).nip.io e.g. 192.168.64.10.nip.io",
             "name": "DOMAIN_NAME",
@@ -138,7 +131,6 @@
                 "name": "che"
             },
             "data": {
-                "hostname-http": "${PROJECT_NAME}-${DOMAIN_NAME}",
                 "workspace-storage": "/home/user/che/workspaces",
                 "workspace-storage-create-folders": "false",
                 "local-conf-dir": "/data/conf",
@@ -227,12 +219,7 @@
                                 "env": [
                                     {
                                         "name": "CHE_DOCKER_IP_EXTERNAL",
-                                        "valueFrom": {
-                                            "configMapKeyRef": {
-                                                "key": "hostname-http",
-                                                "name": "che"
-                                            }
-                                        }
+                                        "value": "${CHE_OPENSHIFT_PROJECT}-${DOMAIN_NAME}"
                                     },
                                     {
                                         "name": "CHE_WORKSPACE_STORAGE",
