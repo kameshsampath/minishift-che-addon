@@ -1,0 +1,9 @@
+= Eclipse Che Addon
+
+This addon create Eclipse Che templates and image streams on OpenShift
+
+== Install
+
+
+== Enable
+
