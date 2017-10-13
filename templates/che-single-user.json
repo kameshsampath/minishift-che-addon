@@ -28,6 +28,13 @@
             "required": true
         },
         {
+            "displayName": "Che Image Tag",
+            "description": "The docker image tag to be used for che, available are 5.18.0(stable), nightly",
+            "name": "IMAGE_TAG",
+            "value": "5.18.0",
+            "required": false
+        },
+        {
             "displayName": "GitHub Client Id",
             "description": "The GitHub Client Id that can be used with GitHub oAuth2",
             "name": "CHE_OAUTH_GITHUB_CLIENTID",
@@ -208,7 +215,7 @@
                             "from": {
                                 "kind": "ImageStreamTag",
                                 "namespace": "${IMAGE_STREAM_NAMESPACE}",
-                                "name": "che-server:5.18.0-centos"
+                                "name": "che-server:${IMAGE_TAG}"
                             }
                         }
                     },
