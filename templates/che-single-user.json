@@ -208,7 +208,7 @@
                             "from": {
                                 "kind": "ImageStreamTag",
                                 "namespace": "${IMAGE_STREAM_NAMESPACE}",
-                                "name": "che-server:5.18.0"
+                                "name": "che-server:5.18.0-centos"
                             }
                         }
                     },

@@ -30,12 +30,30 @@
                         }
                     },
                     {
+                        "name": "5.18.0-centos",
+                        "annotations": {
+                            "description": "Eclipse Che server images.",
+                            "iconClass": "icon-che",
+                            "tags": "java,ide,eclipse,che",
+                            "version": "5.18.0-centos"
+                        }
+                    },
+                    {
                         "name": "nightly",
                         "annotations": {
                             "description": "Eclipse Che server images.",
                             "iconClass": "icon-che",
                             "tags": "java,ide,eclipse,che",
                             "version": "nightly"
+                        }
+                    },
+                    {
+                        "name": "nightly-centos",
+                        "annotations": {
+                            "description": "Eclipse Che server images.",
+                            "iconClass": "icon-che",
+                            "tags": "java,ide,eclipse,che",
+                            "version": "nightly-centos"
                         }
                     }
                 ]
